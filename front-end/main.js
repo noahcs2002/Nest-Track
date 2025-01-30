@@ -1,23 +1,25 @@
 const { app, BrowserWindow } = require('electron');
-const path = require('path');
+const waitOn = require('wait-on');
 
 let mainWindow;
 
-app.on('ready', () => {
+app.on('ready', async () => {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'), // Optional, but useful for secure communication
-      nodeIntegration: true, // Allows using Node.js features in the frontend
+      nodeIntegration: true, 
     },
   });
 
-  mainWindow.loadURL('http://localhost:3000'); // Loads the React app
-});
-
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit();
+  try {
+    mainWindow.hide();
+    await waitOn({ resources: ['http://localhost:3000'], timeout: 5000 });
+    mainWindow.loadURL('http://localhost:3000');
+    mainWindow.maximize()
+    mainWindow.show()
+  } catch (err) {
+    console.error('React app did not start in time:', err);
   }
+
 });
