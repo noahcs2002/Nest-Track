@@ -1,34 +1,54 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useState } from "react";
+import { HamburgerMenu } from "../../icons/HamburgerMenu";
+import './Navbar.css';
 
-function BasicExample() {
+/**
+ * Basic navbar component
+ * @param {Object[]} links The links to render in the navbar
+ * @param {String} logo The logo of the app 
+ * @param {Boolean} darkMode Is the app in Dark Mode
+ * @param {Function} toggleDarkMode The function to call to toggle dark mode 
+ * @param {Object[]} parentPropagator The function to call to propogate render changes up 
+ * @param {String} currentlySelectedLink The href property of link that is currently selected, for styling purposes
+ * @returns Navbar component
+ * 
+ * Example link usage:
+ * const links = [
+    {label: 'Home', href:'/'},
+   ]
+ */
+const Navbar = ({ links, logo, darkMode, toggleDarkMode, parentPropagator, currentlySelectedLink }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [currentSelection, setCurrentSelection] = useState(currentlySelectedLink ? currentlySelectedLink : '/')
+
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <div className="navbar-container">
+      <div className="navbar-content">
+        <div className="navbar-logo">
+          <p>Picture </p>
+          <h2> {logo} </h2>
+        </div>
+        <div className="navbar-links-container">
+          {
+            !menuOpen ? <></> : 
+            // Only render links if the menu is open
+            <div className="navbar-links"> 
+              {links.map((e) => (
+                <div 
+                  key={e.label} 
+                  onClick={() => {(parentPropagator(e.href)); setCurrentSelection(e.href)}} 
+                  className={e.href === currentSelection ? 'navbar-link-selected' : 'navbar-link'}>{e.label}
+                </div>
+              ))}
+            </div>
+          }
+          <div className="navbar-content-menu">
+            <HamburgerMenu onClick={() => setMenuOpen(!menuOpen)} />
+          </div>
+        </div>
+      </div>
+    </div>
   );
-}
+};
 
-export default BasicExample;
+export default Navbar;

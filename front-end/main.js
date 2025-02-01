@@ -4,7 +4,7 @@ const waitOn = require('wait-on');
 let mainWindow;
 
 app.on('ready', async () => {
-  mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({  
     width: 800,
     height: 600,
     webPreferences: {

@@ -37,6 +37,8 @@
   "devDependencies": {
     "concurrently": "^9.1.2",
     "electron": "^34.0.2",
+    "flowbite-react": "^0.10.2",
+    "lucide-react": "^0.474.0",
     "react-dom": "^19.0.0",
     "wait-on": "^8.0.2"
   }
