@@ -40,6 +40,7 @@
     "flowbite-react": "^0.10.2",
     "lucide-react": "^0.474.0",
     "react-dom": "^19.0.0",
+    "sass": "^1.83.4",
     "wait-on": "^8.0.2"
   }
 }

@@ -1,4 +1,4 @@
-import './NewTransaction.css'
+import './NewTransaction.scss'
 import React from 'react'
 
 const NewTransaction = () => {

@@ -1,4 +1,4 @@
-import './Configuration.css'
+import './Configuration.scss'
 import React from 'react'
 
 const ConfigurationPage = () => {

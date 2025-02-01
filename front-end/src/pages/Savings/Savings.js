@@ -1,4 +1,4 @@
-import './Savings.css'
+import './Savings.scss'
 import React from 'react'
 
 const Savings = () => {

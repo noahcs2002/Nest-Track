@@ -1,4 +1,4 @@
-import './GlobalLedgers.css'
+import './GlobalLedgers.scss'
 import React from 'react'
 
 const GlobalLedgers = () => {

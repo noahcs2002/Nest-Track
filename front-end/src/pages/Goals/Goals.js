@@ -1,4 +1,4 @@
-import './Goals.css'
+import './Goals.scss'
 import React from 'react'
 
 const Goals = () => {

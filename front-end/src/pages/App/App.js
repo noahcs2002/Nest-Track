@@ -11,6 +11,8 @@ import Visualisation from '../Visualisation/Visualisation'
 import Projects from '../Projects/Projects'
 import GlobalLedgers from '../GlobalLedgers/GlobalLedgers'
 import Configuration from '../Configuration/Configuration'
+import Footer from '../../modules/footer/Footer';
+import './App.scss';
 
 const App = () => {
 
@@ -93,7 +95,7 @@ const App = () => {
         {renderAppConentPane()}
       </div>
       <div className='app-footer-container'>
-        <p>Footer</p>
+        <Footer /> 
       </div>
     </div>
   );

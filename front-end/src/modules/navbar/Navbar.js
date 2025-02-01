@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { HamburgerMenu } from "../../icons/HamburgerMenu";
-import './Navbar.css';
+import './Navbar.scss';
 
 /**
  * Basic navbar component

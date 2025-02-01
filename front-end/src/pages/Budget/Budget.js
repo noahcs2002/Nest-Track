@@ -1,4 +1,4 @@
-import './Budget.css'
+import './Budget.scss'
 import React from 'react'
 
 const Budget = () => {

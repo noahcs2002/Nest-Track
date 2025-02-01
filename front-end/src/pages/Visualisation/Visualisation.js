@@ -1,4 +1,4 @@
-import './Visualisation.css'
+import './Visualisation.scss'
 import React from 'react'
 
 const Visualisation = () => {
