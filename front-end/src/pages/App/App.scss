@@ -1,0 +1,16 @@
+@import '../../palette';
+// Contains the entire app
+.global-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.app-content-container {
+    border: 4px solid $dark;
+    height: 100%;
+    padding-top: 8px;
+    padding-left: 24px;
+    background-color: $light;
+}
