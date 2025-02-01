@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { HamburgerMenu } from "../../icons/HamburgerMenu";
 import './Navbar.scss';
+import logoImage from '../../logoImage.png';
 
 /**
  * Basic navbar component
@@ -25,7 +26,6 @@ const Navbar = ({ links, logo, darkMode, toggleDarkMode, parentPropagator, curre
     <div className="navbar-container">
       <div className="navbar-content">
         <div className="navbar-logo">
-          <p>Picture </p>
           <h2> {logo} </h2>
         </div>
         <div className="navbar-links-container">
