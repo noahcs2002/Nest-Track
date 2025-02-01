@@ -80,7 +80,7 @@ const App = () => {
   }
 
   return (
-    <div >
+    <div className="global-container">
       <div className='app-navbar-container'>
         <Navbar 
           links={links}
@@ -95,7 +95,9 @@ const App = () => {
         {renderAppConentPane()}
       </div>
       <div className='app-footer-container'>
-        <Footer /> 
+        <footer>
+          <Footer copyYear={'2025'}/>  
+        </footer> 
       </div>
     </div>
   );
